@@ -22,9 +22,12 @@ public class DeckTest {
       Deck deck2 = new Deck();
       
       assert deck1.equals(deck2);
+      logger.info("Deck before shuffle:");
+      deck1.print();
 
       deck1.shuffle();
-
+      logger.info("Deck after shuffle:");
+      deck1.print();
       assertFalse(deck1.equals(deck2));
    }
 
