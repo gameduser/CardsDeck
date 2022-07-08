@@ -8,6 +8,6 @@ In case you don't have Docker installed, you can just clone the repo and run it 
 
 `git clone https://github.com/gameduser/CardsDeck.git`
 
-`cd CardsDesk`
+`cd CardsDeck`
 
 `mvn test`
