@@ -6,12 +6,14 @@ import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.logging.Logger;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 /**
  * Class representing a deck of cards.
  */
 class Deck implements Iterable<Card> {
 
-   private final Card[] cards;
+   private Card[] cards;
    private int top;
    private static final Logger logger = Logger.getLogger(Deck.class.getName()); 
 
@@ -27,8 +29,8 @@ class Deck implements Iterable<Card> {
    /**
     * Return the number of remaining cards.
     */ 
-   public int getTop() {
-      return top;
+   public int getSize() {
+      return cards.length;
    }
 
    /**
@@ -73,13 +75,15 @@ class Deck implements Iterable<Card> {
    }
 
    /**
-    * Take a card from the deck and return it.
+    * Take a card from the deck and return it. We remove it from the deck.
     */
    public Card dealOneCard() {
       if (empty()) {
          throw new IllegalStateException("Can't deal from an empty deck.");
       }
-      return cards[top--];
+      Card card = cards[top--];
+      cards = ArrayUtils.remove(cards, top + 1);
+      return card;
    }
 
    /**

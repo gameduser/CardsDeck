@@ -41,10 +41,10 @@ public class DeckTest {
 
       logger.info("Let's start dealing cards.");
       for (int i = 0; i < cardsNumber; i++) {
-         assert deck.getTop() == cardsNumber - i - 1;
+         assert deck.getSize() == cardsNumber - i;
          Card card = deck.dealOneCard();
          logger.info(card.toString());
-         assert deck.getTop() == cardsNumber - i - 2;
+         assert deck.getSize() == cardsNumber - i - 1;
       }
 
       logger.info("After dealing every card:");
